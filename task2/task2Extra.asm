@@ -6,7 +6,7 @@ ExitProcess proto,dwExitCode:dword
 
 .data
 source byte "i love assembler",0
-nameSize = ($ - aName) - 1
+nameSize = ($ - source) - 1
 
 .code
 main proc
@@ -28,7 +28,7 @@ mov	 ecx,nameSize
 
 L2:	pop  eax				; get character
 	and al, 0DFh			;make uppercase
-	mov	 aName[esi],al		; store in string
+	mov	 source[esi],al		; store in string
 	inc	 esi
 	loop L2
 
